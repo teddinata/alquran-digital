@@ -1,5 +1,7 @@
 <template>
+
   <body class="leading-normal tracking-normal bg-green-500 text-black gradient" style="font-family: 'Source Sans Pro', sans-serif">
+
     <!--Nav-->
     <nav id="header" class="fixed bg-green-500 w-full z-30 top-0 text-white">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
@@ -164,9 +166,25 @@
     </div>
   </body>
 </template>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14942YB253"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14942YB253');
+</script>
+<script src="https://unpkg.com/vue-toasted"></script>
+
+<script>
+    Vue.use(Toasted)
+</script>
+
 
 <script>
 import { debounce } from 'lodash'
+import Toasted from 'vue-toasted';
 export default {
   name: 'IndexPage',
   data(){
@@ -191,10 +209,11 @@ export default {
     },
     searchSurah: debounce(function () {
       // how to make search surah with query params
-      const searchSurah = this.surah.filter(surah => {
-        return surah.nama.toLowerCase().includes(this.surah.toLowerCase())
-      })
-      this.$router.push({ query: { q: searchSurah } })
+      // const searchSurah = this.surah.filter(surah => {
+      //   return surah.nama.toLowerCase().includes(this.surah.toLowerCase())
+      // })
+      // this.$toasted('Maaf Fitur pencarian masih belum tersedia :(')
+      // this.$router.push({ query: { q: searchSurah } })
 
     }, 500)
   }
