@@ -158,6 +158,14 @@
                 </svg>
                 Arti : {{ detail.arti }}
               </p>
+              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                <!-- icon svg for translate -->
+                 <svg class="inline-block w-4 h-4 fill-current text-gray-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                   <path fill-rule="evenodd" d="M10 20a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 2a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" />
+                   <path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                 </svg>
+                 Deskripsi Surat : {{ detail.deskripsi }}
+               </p>
               <div class="flex w-full justify-end">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 items-center mb-8 mr-5 rounded-full">
                  Lihat Tafsir
