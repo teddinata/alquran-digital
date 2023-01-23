@@ -49,7 +49,7 @@
            Al-Qur'an Digital
           </h1>
           <p class="leading-normal text-2xl mb-8">
-            Baca Al-Qur'an secara Online dimana dan kapanpun saja dengan mudah.
+            Baca Al-Qur'an secara Online dimana dan kapan saja dengan mudah.
           </p>
         </div>
         <!--Right Col-->

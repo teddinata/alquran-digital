@@ -47,7 +47,7 @@
            Al-Qur'an Digital
           </h1>
           <p class="leading-normal text-2xl mb-8">
-            Baca Al-Qur'an secara Online dimana dan kapanpun saja dengan mudah.
+            Baca Al-Qur'an secara Online dimana dan kapan saja dengan mudah.
           </p>
         </div>
         <!--Right Col-->
@@ -189,7 +189,7 @@
 
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border divide-y-2">
             <div class="w-full font-bold text-xl text-gray-800 px-6 mt-3 mb-3">
-              {{ ayat.surah }} : {{ ayat.nomor }}
+              QS. {{ detail.nama_latin }} ({{ ayat.surah }}) : Ayat {{ ayat.nomor }}
              </div>
             <div class="w-full font-bold text-right text-5xl text-gray-800 px-6">
               {{ ayat.ar }}
@@ -200,7 +200,7 @@
                 {{ ayat.tr }}
               </div>
               <p class="w-full text-gray-600 text-lg md:text-base px-6">
-                {{ ayat.idn }}
+               {{ ayat.nomor }}. {{ ayat.idn }}
               </p>
             </a>
           </div>
