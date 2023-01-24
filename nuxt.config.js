@@ -2,6 +2,10 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   target: 'static',
+  googleAnalytics: {
+    // Options
+    id: 'G-14942YB253'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -34,6 +38,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxt/postcss8',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,7 +46,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    // ['@nuxtjs/pwa', {icon: false}]
+    ['@nuxtjs/pwa', {icon: false}]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
