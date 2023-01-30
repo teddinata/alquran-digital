@@ -1,7 +1,5 @@
 <template>
-
   <body class="leading-normal tracking-normal bg-green-500 text-black gradient" style="font-family: 'Source Sans Pro', sans-serif">
-
     <!--Nav-->
     <nav id="header" class="fixed bg-green-500 w-full z-30 top-0 text-white">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
@@ -54,7 +52,7 @@
         </div>
         <!--Right Col-->
         <div class="w-full md:w-2/5 py-6 text-center">
-          <img class="w-20 h-25 object-cover md:w-4/5 z-50 " src="../assets/image/alquran.png" />
+          <img class="w-20 h-25 object-cover md:w-4/5 z-50 " src="../../assets/image/alquran.png" />
         </div>
       </div>
     </div>
@@ -83,42 +81,115 @@
           Title
         </h1> -->
         <!-- make form search w-full -->
-        <div class="w-full mb-4 rounded-lg bg-gray-200">
-              <div class="flex">
-                <div class="flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r bg-gray-100 p-5">
-                  <svg viewBox="0 0 20 20" aria-hidden="true" class="pointer-events-none absolute w-5 fill-gray-500 transition">
-                    <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
-                  </svg>
-                </div>
-                <input type="search" v-model="search"
-                  @input="searchSurah"
-                  class="w-full bg-gray-100 pl-2 text-base font-semibold outline-0 cursor-pointer outline-none text-gray-700" placeholder="Cari Surat" id="" />
-                <input type="button" value="Cari" class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"/>
-              </div>
+        <div class="w-full mb-4 rounded-lg">
+          <!-- button for next surat and before surat position in between  -->
+          <div class="flex justify-between"
+          >
+          <div class="w-1/3" >
+            <button
+              v-if="tafsir.suratSebelumnya"
+              @click="$router.push({ name: 'tafsir-id', params: { id: tafsir.suratSebelumnya.nomor }})"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+            ⬅ Surat Sebelumnya
+            </button>
+          </div>
+          <div class="w-1/3 flex justify-end"
+          >
+            <button
+              v-if="tafsir.suratSelanjutnya"
+              @click="$router.push({ name: 'tafsir-id', params: { id: tafsir.suratSelanjutnya.nomor }})"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+             Surat Berikutnya ➡
+            </button>
+          </div>
 
+            <!-- <div class="w-1/3 flex justify-end">
+              <form class="w-full max-w-sm">
+                <div class="flex items center border-b border-b-2 border-teal-500 py-2">
+                  <input
+                    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    type="text"
+                    placeholder="Cari Surat"
+                    aria-label="Full name"
+                    v-model="search"
+                  />
+                  <button
+                    class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+                    type="button"
+                  >
+                    Cari
+                  </button>
+                </div>
+              </form>
+            </div> -->
+          </div>
         </div>
         <!-- <div class="w-full mb-4">
           <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div> -->
         <div
-          v-for="surat in surah"
-          :key="surat.nomor"
-          class="w-full md:w-1/3  px-6 py-4 flex flex-col flex-grow flex-shrink mt-4">
+          class="w-full md:w-3/3  px-6 py-4 flex flex-col flex-grow flex-shrink mt-4">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border">
-            <a :href="`/surat/${surat.nomor}`"  class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mt-3">
-               {{ surat.nomor }}. {{ surat.namaLatin }}
+            <div class="flex justify-between flex-wrap no-underline hover:no-underline">
+              <div class="w-full font-bold text-3xl text-gray-800 px-6 mt-3">
+               {{ tafsir.namaLatin }} - {{ tafsir.nama }}
               </div>
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                {{ surat.arti }}
+              <p class="w-full text-gray-600 text-xs md:text-sm px-6 mt-2">
+                <svg class="inline-block w-4 h-4 fill-current text-gray-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 20a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 2a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" />
+                  <path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
+                Turun di {{ tafsir.tempatTurun }}
               </p>
+              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                <svg class="inline-block w-4 h-4 fill-current text-gray-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                  <path fill-rule="evenodd" d="M10 20a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 2a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" />
+                </svg>
+                Jumlah Ayat : {{ tafsir.jumlahAyat }}
+              </p>
+              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+               <!-- icon svg for translate -->
+                <svg class="inline-block w-4 h-4 fill-current text-gray-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 20a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 2a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" />
+                  <path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
+                Arti : {{ tafsir.arti }}
+              </p>
+              <div class="w-full mt-2 text-gray-600 text-xs md:text-sm px-6">
+                 Deskripsi Surat : <p class="mt-1 text-justify" v-html="tafsir.deskripsi"></p>
+               </div>
+              <div class="flex w-full justify-end">
+                <button
+                  @click="$router.push({ name: 'surat-id', params: { id: tafsir.nomor }})"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 items-center mb-8 mr-5 rounded-full">
+                 Lihat Surat
+                </button>
+              </div>
+            </div>
 
-            <div class="w-full font-bold text-right text-5xl text-gray-800 px-6">
-              {{ surat.nama }}
-            </div>
-            <div class="w-full font-bold text-right text-2xl text-gray-800 px-6">
-              {{ surat.tempatTurun }}
-            </div>
+          </div>
+        </div>
+        <div
+          v-for="ayat in tafsir.tafsir"
+          :key="ayat.id"
+          class="w-full md:w-3/3  px-6 py-4 flex flex-col flex-grow flex-shrink mt-4">
+          <!-- divider -->
+
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border divide-y-2">
+            <div class="w-full font-bold text-xl text-gray-800 px-6 mt-3 mb-3">
+              QS. {{ tafsir.namaLatin }} ({{ tafsir.nomor }}) : Ayat {{ ayat.ayat }}
+             </div>
+            <a class="flex flex-wrap no-underline hover:no-underline">
+              <!-- make new line \n\ replace teks -->
+              <div v-html="ayat.teks.replace(/\n/g, '<br>')" class="w-full text-justify text-xl text-gray-800 px-6">
+
+              </div>
+              <!-- <div v-for="taf, index in teks" :key="index" class="w-full text-justify text-xl text-gray-800 px-6">
+                <p v-html="taf"></p>
+              </div> -->
             </a>
           </div>
         </div>
@@ -175,67 +246,33 @@
 
   gtag('config', 'G-14942YB253');
 </script>
-<!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149885634-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-149885634-1');
-</script> -->
-
-<script src="https://unpkg.com/vue-toasted"></script>
-
-<script>
-    Vue.use(Toasted)
-</script>
-
-
-<script>
-import { debounce } from 'lodash'
-import Toasted from 'vue-toasted';
 export default {
   name: 'IndexPage',
   data(){
     return {
-      surah: [],
-      search: '',
-    }
-  },
-  computed: {
-    query() {
-      return this.$route.query.q
+      tafsir: [],
+      teks: []
     }
   },
   mounted(){
-    this.getSurat()
+    this.getDetailSurat()
   },
   methods: {
-    async getSurat(){
-      // const surah = await fetch('https://equran.id/api/v2/surat').then(res => res.json())
-       await fetch('https://equran.id/api/v2/surat').then(res => res.json()).then(data => {
-        this.surah = data.data
-      })
-        console.log(this.surah)
-      // console.log(surah[0].nama)
-    },
-    searchSurah: debounce(function () {
-      // how to make search surah with query params
-      const searchSurah = this.surah.filter(surah => {
-        return surah.namaLatin.toLowerCase().includes(this.search.toLowerCase())
-      })
-      console.log(searchSurah)
-      // then push to router query params
-      // this.$router.push({ name: 'index', query: { q: searchSurah } })
-      // console.log(searchSurah)
-      // const searchSurah = this.surah.filter(surah => {
-      //   return surah.nama.toLowerCase().includes(this.surah.toLowerCase())
-      // })
-      // this.$toasted('Maaf Fitur pencarian masih belum tersedia :(')
-      // this.$router.push({ query: { q: searchSurah } })
-
-    }, 500)
+    async getDetailSurat(){
+      const id = this.$route.params.id
+      await fetch(`https://equran.id/api/v2/tafsir/${id}`).then(res => res.json())
+        .then(data => {
+          this.tafsir = data.data
+          this.teks = this.tafsir.tafsir.map((item) => {
+            return item.teks
+          })
+          console.log(this.teks)
+        })
+      }
+    // await fetch(`https://equran.id/api/v2/surat/${id}`).then(res => res.json()).then(data => {
+    //     this.detail = data.data
+    //   })
   }
 }
 </script>

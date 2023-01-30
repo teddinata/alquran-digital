@@ -27,10 +27,30 @@ export default {
       {
         src: 'https://www.googletagmanager.com/gtag/js?id=G-14942YB253',
         async: true,
+      },
+      {
+        hid: "gtag-script",
+        innerHTML: `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-14942YB253');`,
 
       },
-
+      {
+        hid: "gtm-script",
+        innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','G-14942YB253');`,
+      }
     ],
+    noscript: [
+      {
+        hid: "gtm-noscript",
+        innerHTML: `<iframe src="https://www.googletagmanager.com/ns.html?id=G-14942YB253" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        prepend: true,
+        pbody: true,
+      }
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'gtag-script': ['innerHTML'],
+      'gtm-script': ['innerHTML'],
+      'gtm-noscript': ['innerHTML'],
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

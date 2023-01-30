@@ -158,16 +158,13 @@
                 </svg>
                 Arti : {{ detail.arti }}
               </p>
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                <!-- icon svg for translate -->
-                 <svg class="inline-block w-4 h-4 fill-current text-gray-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                   <path fill-rule="evenodd" d="M10 20a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 2a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" />
-                   <path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                 </svg>
-                 Deskripsi Surat : {{ detail.deskripsi }}
-               </p>
+                <div class="w-full mt-2 text-gray-600 text-xs md:text-sm px-6">
+                  Deskripsi Surat : <p class="mt-1 text-justify" v-html="detail.deskripsi"></p>
+                </div>
               <div class="flex w-full justify-end">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 items-center mb-8 mr-5 rounded-full">
+                <button
+                  @click="$router.push({ name: 'tafsir-id', params: { id: detail.nomor }})"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 items-center mb-8 mr-5 rounded-full">
                  Lihat Tafsir
                 </button>
               </div>
@@ -190,6 +187,15 @@
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border divide-y-2">
             <div class="w-full font-bold text-xl text-gray-800 px-6 mt-3 mb-3">
               QS. {{ detail.nama_latin }} ({{ ayat.surah }}) : Ayat {{ ayat.nomor }}
+              <!-- <button class="ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 items-center mb-8 mr-5 " @click="playAudio(ayat.audio)"> -->
+                <!-- icon play button -->
+                <!-- <svg class="inline-block w-4 h-4 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M0 0h20v20H0z" fill="none" />
+                  <path d="M6 4l10 6-10 6z" />
+                </svg> -->
+                <!-- <button @click="">▶️</button> -->
+                <!-- <button v-if="isPlay=true" @click="isPlay=true">⏸️</button> -->
+              <!-- </button> -->
              </div>
             <div class="w-full font-bold text-right text-5xl text-gray-800 px-6">
               {{ ayat.ar }}
@@ -258,12 +264,23 @@
 
   gtag('config', 'G-14942YB253');
 </script>
+<!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149885634-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149885634-1');
+</script> -->
+
 <script>
 export default {
   name: 'IndexPage',
   data(){
     return {
-      detail: []
+      detail: [],
+      isPlay: false
     }
   },
   mounted(){
@@ -276,6 +293,9 @@ export default {
       console.log(detail.surat_selanjutnya)
       this.detail = detail
     }
+    // await fetch(`https://equran.id/api/v2/surat/${id}`).then(res => res.json()).then(data => {
+    //     this.detail = data.data
+    //   })
   }
 }
 </script>
