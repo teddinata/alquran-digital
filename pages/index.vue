@@ -92,6 +92,7 @@
                 </div>
                 <input type="search" v-model="search"
                   @input="searchSurah"
+                  @keyup.enter="searchSurah"
                   class="w-full bg-gray-100 pl-2 text-base font-semibold outline-0 cursor-pointer outline-none text-gray-700" placeholder="Cari Surat" id="" />
                 <input type="button" value="Cari" class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"/>
               </div>
@@ -215,26 +216,18 @@ export default {
     async getSurat(){
       // const surah = await fetch('https://equran.id/api/v2/surat').then(res => res.json())
        await fetch('https://equran.id/api/v2/surat').then(res => res.json()).then(data => {
-        this.surah = data.data
+        this.surah = data.data.filter(surah => {
+          return surah.namaLatin.toLowerCase().includes(this.search.toLowerCase())
+        })
       })
         console.log(this.surah)
-      // console.log(surah[0].nama)
     },
     searchSurah: debounce(function () {
-      // how to make search surah with query params
       const searchSurah = this.surah.filter(surah => {
         return surah.namaLatin.toLowerCase().includes(this.search.toLowerCase())
       })
       console.log(searchSurah)
-      // then push to router query params
-      // this.$router.push({ name: 'index', query: { q: searchSurah } })
-      // console.log(searchSurah)
-      // const searchSurah = this.surah.filter(surah => {
-      //   return surah.nama.toLowerCase().includes(this.surah.toLowerCase())
-      // })
-      // this.$toasted('Maaf Fitur pencarian masih belum tersedia :(')
-      // this.$router.push({ query: { q: searchSurah } })
-
+      this.getSurat({ query: { q: searchSurah } })
     }, 500)
   }
 }
