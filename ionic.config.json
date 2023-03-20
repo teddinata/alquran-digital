@@ -1,0 +1,7 @@
+{
+  "name": "equran-nuxt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

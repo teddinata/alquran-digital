@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Al Quran Digital Indonesia</string>
+    <string name="title_activity_main">Al Quran Digital Indonesia</string>
+    <string name="package_name">com.example.alquran</string>
+    <string name="custom_url_scheme">com.example.alquran</string>
+</resources>

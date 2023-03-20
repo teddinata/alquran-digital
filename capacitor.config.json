@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.alquran",
+  "appName": "Al Quran Digital Indonesia",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

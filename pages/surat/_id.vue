@@ -247,11 +247,12 @@
         Rasulullah SAW. bersabda: “Siapa saja membaca satu huruf dari Kitabullah (Alquran) maka dia akan mendapat satu kebaikan. Sedangkan satu kebaikan dilipatkan kepada sepuluh semisalnya. Aku tidak mengatakan alif lâm mîm satu huruf. Akan tetapi, alif satu huruf, lâm satu huruf, dan mîm satu huruf.” (HR At-Tirmidzi).
       </h3>
       <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-        Action!
+        <a href="https://trakteer.id/teddinata" target="_blank"><img id="wse-buttons-preview" src="https://cdn.trakteer.id/images/embed/trbtn-green-1.png" height="40" style="border:0px;height:40px;" alt="Trakteer Saya"></a>
+        <!-- Action! -->
       </button>
     </section>
     <div>
-      <p class="text-center p-3">Made by teddinata From Indonesia</p>
+      <p class="text-center p-3">Made by <a href="https://github.com/teddinata/alquran-digital">teddinata</a> From Indonesia</p>
     </div>
   </body>
 </template>
