@@ -234,7 +234,7 @@
       </button>
     </section>
     <div>
-      <p class="text-center p-3">Made by <a href="https://github.com/teddinata/alquran-digital">teddinata</a> From Indonesia</p>
+      <p class="text-center p-3">Made by <a href="https://github.com/teddinata/alquran-digital"><u>teddinata</u></a> From Indonesia</p>
     </div>
   </body>
 </template>
