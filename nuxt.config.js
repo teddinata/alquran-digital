@@ -1,5 +1,9 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  server: {
+    port: 4000, // Port yang ingin Anda gunakan
+    host: 'localhost', // Tetapkan host ke 'localhost'
+  },
   ssr: false,
   target: 'static',
   googleAnalytics: {
