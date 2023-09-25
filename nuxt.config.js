@@ -4,6 +4,17 @@ export default {
     port: 4000, // Port yang ingin Anda gunakan
     host: 'localhost', // Tetapkan host ke 'localhost'
   },
+  generate: {
+    routes: function () {
+      const dynamicRoutes = []
+      // Generate dynamic routes here
+      // Misalnya, Anda memiliki 5 surat, dan Anda ingin membuat rute dinamis untuk setiap surat
+      for (let i = 1; i <= 114; i++) {
+        dynamicRoutes.push('/surat/' + i)
+      }
+      return dynamicRoutes
+    }
+  },
   ssr: false,
   target: 'static',
   googleAnalytics: {
