@@ -38,6 +38,25 @@
           </button>
         </div> -->
       </div>
+      <!-- add component stand for palestinian with icon watermelon asset online -->
+      <div class="lg:hidden flex items-center pr-4 justify-center">
+        <a href="https://kitabisa.com/campaign/istandwithpalestine" target="_blank" class="text-white no-underline hover:no-underline flex items-center mx-2 bg-white">
+          <span class="text-center text-lg px-2 py-1 rounded bg-white text-red-500" style="text-decoration: underline; font-weight: bold;">#StandWithPalestine</span>
+          <span style="font-size: 1.5em; background-color: white; padding: 5px; border-radius: 10px;">🍉</span>
+          <!-- <span class="ml-2 text-center text-lg px-2 py-1 rounded bg-red-500 text-white" style="text-decoration: underline; font-weight: bold;">Palestine</span> -->
+        </a>
+      </div>
+      <div class="hidden lg:flex items-center pr-4 justify-center">
+        <a href="https://kitabisa.com/campaign/istandwithpalestine" target="_blank" class="text-white no-underline hover:no-underline flex items-center mx-2 bg-white">
+          <span class="ml-2 text-center text-2xl px-2 py-1 rounded bg-white text-red-500" style="text-decoration: underline; font-weight: bold;">#StandWithPalestine</span>
+          <!-- <span class="ml-2 text-center text-2xl px-2 py-1 rounded bg-red-500 text-white" style="text-decoration: underline; font-weight: bold;">Palestine</span> -->
+          <span style="font-size: 2em; background-color: white; padding: 5px; border-radius: 10px;">🍉</span>
+        </a>
+      </div>
+
+
+
+
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
     <!--Hero-->
