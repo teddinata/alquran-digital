@@ -108,7 +108,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     icon: {
-      source: '@/static/alquran1.png',
+      source: '@/static/icon.png',
     },
     meta: {
       name: 'Al-Quran Digital Bahasa Indonesia',
