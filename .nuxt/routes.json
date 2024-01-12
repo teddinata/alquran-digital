@@ -3,18 +3,21 @@
     "name": "surat-id",
     "path": "/surat/:id?",
     "component": "C:\\\\laragon\\\\www\\\\equran-nuxt\\\\pages\\\\surat\\\\_id.vue",
-    "chunkName": "pages/surat/_id"
+    "chunkName": "pages/surat/_id",
+    "_name": "_97600e8a"
   },
   {
     "name": "tafsir-id",
     "path": "/tafsir/:id?",
     "component": "C:\\\\laragon\\\\www\\\\equran-nuxt\\\\pages\\\\tafsir\\\\_id.vue",
-    "chunkName": "pages/tafsir/_id"
+    "chunkName": "pages/tafsir/_id",
+    "_name": "_41caca03"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\laragon\\\\www\\\\equran-nuxt\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_72053ade"
   }
 ]

@@ -28,7 +28,7 @@
     {
       "hid": "description",
       "name": "description",
-      "content": "## Build Setup"
+      "content": "Al-Quran Digital Bahasa Indonesia adalah aplikasi Al-Quran berbasis web yang dapat digunakan untuk membaca Al-Quran secara online."
     },
     {
       "hid": "theme-color",
@@ -57,14 +57,14 @@
       "hid": "og:description",
       "name": "og:description",
       "property": "og:description",
-      "content": "## Build Setup"
+      "content": "Al-Quran Digital Bahasa Indonesia adalah aplikasi Al-Quran berbasis web yang dapat digunakan untuk membaca Al-Quran secara online."
     }
   ],
   "link": [
     {
       "hid": "shortcut-icon",
       "rel": "shortcut icon",
-      "href": "/alquran.png"
+      "href": "/maskable_icon_x192.png"
     },
     {
       "hid": "apple-touch-icon",
@@ -74,7 +74,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.60d5ef3b.json",
+      "href": "/_nuxt/manifest.91814b57.json",
       "hid": "manifest"
     }
   ],

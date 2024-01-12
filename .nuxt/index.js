@@ -13,11 +13,11 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 /* Plugins */
 
 import nuxt_plugin_plugin_419117ce from 'nuxt_plugin_plugin_419117ce' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_axios_da9cf488 from 'nuxt_plugin_axios_da9cf488' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_googleanalytics_6c53b62c from 'nuxt_plugin_googleanalytics_6c53b62c' // Source: .\\google-analytics.js (mode: 'client')
 import nuxt_plugin_workbox_2e377bd8 from 'nuxt_plugin_workbox_2e377bd8' // Source: .\\workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_e195cf50 from 'nuxt_plugin_metaplugin_e195cf50' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_d8468468 from 'nuxt_plugin_iconplugin_d8468468' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
-import nuxt_plugin_axios_da9cf488 from 'nuxt_plugin_axios_da9cf488' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_googleanalytics_6c53b62c from 'nuxt_plugin_googleanalytics_6c53b62c' // Source: .\\google-analytics.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -185,6 +185,14 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_419117ce(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_axios_da9cf488 === 'function') {
+    await nuxt_plugin_axios_da9cf488(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_googleanalytics_6c53b62c === 'function') {
+    await nuxt_plugin_googleanalytics_6c53b62c(app.context, inject)
+  }
+
   if (process.client && typeof nuxt_plugin_workbox_2e377bd8 === 'function') {
     await nuxt_plugin_workbox_2e377bd8(app.context, inject)
   }
@@ -195,14 +203,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_iconplugin_d8468468 === 'function') {
     await nuxt_plugin_iconplugin_d8468468(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_axios_da9cf488 === 'function') {
-    await nuxt_plugin_axios_da9cf488(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_googleanalytics_6c53b62c === 'function') {
-    await nuxt_plugin_googleanalytics_6c53b62c(app.context, inject)
   }
 
   // Lock enablePreview in context

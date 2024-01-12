@@ -1,9 +1,9 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  server: {
-    port: 4000, // Port yang ingin Anda gunakan
-    host: 'localhost', // Tetapkan host ke 'localhost'
-  },
+  // server: {
+  //   port: 4000, // Port yang ingin Anda gunakan
+  //   host: 'localhost', // Tetapkan host ke 'localhost'
+  // },
   generate: {
     routes: function () {
       const dynamicRoutes = []
@@ -85,6 +85,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/pwa',
     '@nuxt/postcss8',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-analytics'
@@ -95,7 +96,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    ['@nuxtjs/pwa']
+    // '@nuxtjs/pwa'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -106,6 +107,9 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      source: '@/static/alquran1.png',
+    },
     meta: {
       name: 'Al-Quran Digital Bahasa Indonesia',
       author: 'Teddinata Kusuma',
@@ -113,14 +117,20 @@ export default {
     manifest: {
       name: 'Al-Quran Digital Bahasa Indonesia',
       short_name: 'Al-Quran Digital Bahasa Indonesia',
+      description: 'Al-Quran Digital Bahasa Indonesia adalah aplikasi Al-Quran berbasis web yang dapat digunakan untuk membaca Al-Quran secara online.',
       start_url: '/',
       display: 'standalone',
       background_color: '#ffffff',
       theme_color: '#41b883',
       icons: [
         {
-          src: '/alquran.png',
-          sizes: '144x144',
+          src: '/maskable_icon_x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: '/maskable_icon_x512.png',
+          sizes: '512x512',
           type: 'image/png',
         },
       ],

@@ -1,6 +1,10 @@
-# equran-nuxt
+# Alquran Digital
 
-## Build Setup
+Alquran Digital adalah aplikasi yang berisi tentang Alquran yang dapat diakses secara digital. 
+Dikembangkan menggunakan framework NuxtJS dan TailwindCSS oleh Teddinata Kusuma.
+## Alquran Digital adalah aplikasi yang berisi tentang Alquran yang dapat diakses secara digital. 
+Dikembangkan menggunakan framework NuxtJS dan TailwindCSS oleh Teddinata Kusuma.
+
 
 ```bash
 # install dependencies
