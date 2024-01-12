@@ -95,7 +95,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    ['@nuxtjs/pwa', {icon: false}]
+    ['@nuxtjs/pwa']
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -106,9 +106,26 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      name: 'Al-Quran Digital Bahasa Indonesia',
+      author: 'Teddinata Kusuma',
+    },
     manifest: {
-      lang: 'en'
-    }
+      name: 'Al-Quran Digital Bahasa Indonesia',
+      short_name: 'Al-Quran Digital Bahasa Indonesia',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#ffffff',
+      theme_color: '#41b883',
+      icons: [
+        {
+          src: '/alquran.png',
+          sizes: '144x144',
+          type: 'image/png',
+        },
+      ],
+      id: '/?standalone=true',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
